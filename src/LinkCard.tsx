@@ -34,15 +34,21 @@ const LinkCard: React.FC<LinkCardProps> = ({
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full min-h-24 flex items-center transition-transform opacity-90 hover:scale-[1.02] hover:opacity-100 focus:outline-none"
+        className="w-full rounded-full min-h-24 flex items-center transition-transform opacity-90 hover:scale-[1.02] hover:opacity-100 focus:outline-none"
       >
-        <div className="p-4 flex flex-col flex-1 text-center">
+        <div className="p-4 flex flex-col flex-1 text-center ">
           <span className="font-bold text-base">{title}</span>
-          {subtitle && <span className="text-sm mt-1 text-gray-600">{subtitle}</span>}
+          {subtitle && (
+            <span className="text-sm mt-1 text-gray-600">{subtitle}</span>
+          )}
         </div>
         {thumbnail && (
           <div className="w-24 h-24 flex justify-center flex-shrink-0">
-            <img src={thumbnail} alt={title} className="w-10 h-10 object-cover m-auto" />
+            <img
+              src={thumbnail}
+              alt={title}
+              className="w-10 h-10 object-cover m-auto"
+            />
           </div>
         )}
         {iconHtml && (
