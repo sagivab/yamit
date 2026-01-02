@@ -4,10 +4,10 @@ type LinkCardProps = {
   title: string;
   subtitle?: string;
   url?: string;
-  thumbnail?: string;
   bgColor?: string;
   textColor?: string;
-  iconHtml?: string;
+  accentColor?: string;
+  icon?: React.ReactNode;
   isOpen: boolean;
   onToggle: () => void;
   details?: React.ReactNode;
@@ -17,47 +17,53 @@ const LinkCard: React.FC<LinkCardProps> = ({
   title,
   subtitle,
   url,
-  thumbnail,
-  iconHtml,
-  bgColor = "#fff",
-  textColor = "#333",
+  bgColor = "#efe7da",
+  textColor = "#1f1f1f",
+  accentColor = "#5a5a2a",
+  icon,
   isOpen,
   onToggle,
   details,
 }) => {
   return (
     <div
-      className="rounded-lg shadow-md overflow-hidden"
+      className="w-full overflow-hidden rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_16px_32px_rgba(0,0,0,0.10)]"
       style={{ backgroundColor: bgColor, color: textColor }}
     >
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
-        className="w-full rounded-full min-h-24 flex items-center transition-transform opacity-90 hover:scale-[1.02] hover:opacity-100 focus:outline-none"
+        className="w-full flex items-center justify-between px-4 py-4"
       >
-        <div className="p-4 flex flex-col flex-1 text-center ">
-          <span className="font-bold text-base">{title}</span>
-          {subtitle && (
-            <span className="text-sm mt-1 text-gray-600">{subtitle}</span>
-          )}
-        </div>
-        {thumbnail && (
-          <div className="w-24 h-24 flex justify-center flex-shrink-0">
-            <img
-              src={thumbnail}
-              alt={title}
-              className="w-10 h-10 object-cover m-auto"
-            />
-          </div>
-        )}
-        {iconHtml && (
+        <div className="flex items-center gap-3">
           <div
-            className="text-3xl text-blue-500 pr-4"
-            aria-hidden="true"
-            dangerouslySetInnerHTML={{ __html: iconHtml }}
+            className="h-12 w-[10px] rounded-full"
+            style={{ backgroundColor: accentColor }}
           />
-        )}
+
+          {icon ? (
+            <div
+              className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-black/10"
+              style={{ backgroundColor: "rgba(255,255,255,0.65)" }}
+            >
+              <div className="text-xl" style={{ color: accentColor }}>
+                {icon}
+              </div>
+            </div>
+          ) : null}
+        </div>
+
+        <div className="flex-1 text-center">
+          <div className="text-lg font-bold tracking-tight">{title}</div>
+          {subtitle ? (
+            <div className="mt-1 text-sm text-black/50">{subtitle}</div>
+          ) : null}
+        </div>
+
+        <div className="flex items-center justify-center w-8 text-4xl font-bold text-black/70">
+          ›
+        </div>
       </button>
 
       <div
@@ -66,20 +72,20 @@ const LinkCard: React.FC<LinkCardProps> = ({
         }`}
       >
         <div className="overflow-hidden">
-          <div className="px-4 pb-4 pt-2 border-t border-black/5">
+          <div className="px-6 pb-6 pt-2 border-t border-black/5 text-right">
             {details}
-            {url && (
-              <div className="mt-3">
+            {url ? (
+              <div className="mt-4">
                 <a
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-md px-4 py-2 text-sm font-medium border border-black/10 hover:border-black/20 hover:bg-black/5"
+                  className="inline-flex items-center justify-center rounded-xl px-5 py-2 text-sm font-semibold border border-black/10 hover:border-black/20 hover:bg-black/5"
                 >
                   פתיחת קישור
                 </a>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

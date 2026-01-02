@@ -1,0 +1,45 @@
+@keyframes wa-wobble {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  10% {
+    transform: rotate(-10deg) scale(1.06);
+  }
+  20% {
+    transform: rotate(10deg) scale(1.06);
+  }
+  30% {
+    transform: rotate(-8deg) scale(1.05);
+  }
+  40% {
+    transform: rotate(8deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(-6deg) scale(1.04);
+  }
+  60% {
+    transform: rotate(6deg) scale(1.04);
+  }
+  70% {
+    transform: rotate(-4deg) scale(1.03);
+  }
+  80% {
+    transform: rotate(4deg) scale(1.03);
+  }
+  90% {
+    transform: rotate(0deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.wa-wobble {
+  animation: wa-wobble 900ms ease-in-out 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-wobble {
+    animation: none !important;
+  }
+}
