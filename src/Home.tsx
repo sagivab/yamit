@@ -171,106 +171,107 @@ function YamitPage() {
 
   return (
     <div className="min-h-screen max-w-screen-sm mx-auto flex flex-col items-center px-10 py-10 relative bg-[#e7dfd1] text-[#1f1f1f]">
-      <div className="relative w-full" style={{ borderColor: "#686128" }}>
-        <img
-          src="/yamit.jpeg"
-          alt="Yamit profile"
-          className="rounded-full w-full h-[322px] object-cover"
-        />
-
-        <img
-          src="/logo.jpeg"
-          alt="Yamit logo"
-          className="
-            absolute
-            bottom-2 right-2
-            w-28 h-28
-            opacity-75
-            object-contain
-            rounded-full
-            p-2
-            shadow-md
-          "
-          style={{ backgroundColor: "rgba(207,196,178,0.85)" }}
-        />
-      </div>
-
-      <h1 className="text-xl font-bold mt-2" style={{ color: "#81361A" }}>
-        ימית אסתר קדוש
-      </h1>
-
-      <p
-        className="text-center text-sm mt-2 whitespace-pre-line"
-        style={{ color: "#151515" }}
-      >
-        הרבליסטית - מטפלת בצמחי מרפא, רוקחת פורמולות ריפוי וקוסמטיקה טבעית.
-        מלווה נשים לאורח חיים בריא, איזון הורמונלי וירידה במשקל. חיה ונושמת אורח
-        חיים בריא, יודעת שהשליחות האמיתית שלי היא לעזור לנשים להגיע לבריאות
-        מיטבית ולהרגיש טוב בגוף שלהן בדגש על איזון הורמונלי בתקופת המחזור ובגיל
-        המעבר. הגישה שלי מבוססת על פשטות ושינויים הדרגתיים - בלי דיאטות
-        קיצוניות. אני כאן כדי ללוות אותך בדרך לבריאות מאוזנת, עם כלים מעשיים
-        שיעזרו לך להרגיש טוב יותר, לישון טוב יותר ולחיות באנרגיה גבוהה
-      </p>
-
-      <div className="mt-6 w-full max-w-md space-y-4">
-        <a
-          href="https://wa.me/972546197799"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`
-    w-11/12
-    mx-auto
-    rounded-2xl
-    min-h-[64px]
-    flex items-center justify-center gap-3
-    shadow-[0_10px_25px_rgba(0,0,0,0.10)]
-    transition-all duration-200
-    hover:-translate-y-[2px]
-    hover:shadow-[0_16px_32px_rgba(0,0,0,0.12)]
-    bg-[#8b5a2b]
-    text-white
-    ${animateWA ? "wa-wobble" : ""}`}
-        >
-          <div className="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center m-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="26"
-              height="26"
-              viewBox="0 0 16 16"
-              fill="white"
-            >
-              <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
-            </svg>
-          </div>
-
-          <div className="text-center">
-            <div className="text-xl font-bold leading-5">
-              להצטרפות לקהילת הבריאות החינמית שלי
-            </div>
-          </div>
-        </a>
-
-        {items.map((it) => (
-          <LinkCard
-            key={it.key}
-            title={it.title}
-            bgColor={it.bgColor}
-            accentColor={it.accentColor}
-            icon={it.icon}
-            textColor="#1f1f1f"
-            isOpen={openKey === it.key}
-            onToggle={() => setOpenKey(openKey === it.key ? null : it.key)}
-            details={it.details}
+      <header className="relative w-full" style={{ borderColor: "#686128" }}>
+        
+          <img
+            src="/yamit.jpeg"
+            alt="Yamit profile"
+            className="rounded-full w-full h-[322px] object-cover"
           />
-        ))}
-      </div>
 
-      <footer
-        className="mt-12 w-full max-w-md rounded-2xl p-6 text-center border shadow-sm"
-        style={{
-          backgroundColor: "rgba(207,196,178,0.7)",
-          borderColor: "#686128",
-        }}
+          <img
+            src="/logo.jpeg"
+            alt="Yamit logo"
+            className="
+              absolute
+              bottom-2 right-2
+              w-28 h-28
+              opacity-75
+              object-contain
+              rounded-full
+              p-2
+              shadow-md
+            "
+            style={{ backgroundColor: "rgba(207,196,178,0.85)" }}
+          />
+        
+      </header>
+
+      <main className="min-h-screen max-w-screen-sm mx-auto flex flex-col items-center  py-10 relative bg-[#e7dfd1] text-[#1f1f1f]">
+        <h1 className="text-xl font-bold mt-2" style={{ color: "#81361A" }}>
+          ימית אסתר קדוש
+        </h1>
+
+        <p
+          className="text-center text-sm mt-2 whitespace-pre-line"
+          style={{ color: "#151515" }}
+        >
+          הרבליסטית - מטפלת בצמחי מרפא, רוקחת פורמולות ריפוי וקוסמטיקה טבעית.
+          מלווה נשים לאורח חיים בריא, איזון הורמונלי וירידה במשקל. חיה ונושמת אורח
+          חיים בריא, יודעת שהשליחות האמיתית שלי היא לעזור לנשים להגיע לבריאות
+          מיטבית ולהרגיש טוב בגוף שלהן בדגש על איזון הורמונלי בתקופת המחזור ובגיל
+          המעבר. הגישה שלי מבוססת על פשטות ושינויים הדרגתיים - בלי דיאטות
+          קיצוניות. אני כאן כדי ללוות אותך בדרך לבריאות מאוזנת, עם כלים מעשיים
+          שיעזרו לך להרגיש טוב יותר, לישון טוב יותר ולחיות באנרגיה גבוהה
+        </p>
+
+        <div className="mt-6 w-full max-w-md space-y-4">
+          <a
+            href="https://chat.whatsapp.com/L2Zkd9td5Fs5FDehcpnypD?mode=gi_t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`
+      w-11/12
+      mx-auto
+      rounded-2xl
+      min-h-[64px]
+      flex items-center justify-center gap-3
+      shadow-[0_10px_25px_rgba(0,0,0,0.10)]
+      transition-all duration-200
+      hover:-translate-y-[2px]
+      hover:shadow-[0_16px_32px_rgba(0,0,0,0.12)]
+      bg-[#8b5a2b]
+      text-white
+      ${animateWA ? "wa-wobble" : ""}`}
+          >
+            <div className="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center m-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="26"
+                viewBox="0 0 16 16"
+                fill="white"
+              >
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+              </svg>
+            </div>
+
+            <div className="text-center">
+              <div className="text-xl font-bold leading-5">
+                להצטרפות לקהילת הבריאות החינמית שלי
+              </div>
+            </div>
+          </a>
+
+          {items.map((it) => (
+            <LinkCard
+              key={it.key}
+              title={it.title}
+              bgColor={it.bgColor}
+              accentColor={it.accentColor}
+              icon={it.icon}
+              textColor="#1f1f1f"
+              isOpen={openKey === it.key}
+              onToggle={() => setOpenKey(openKey === it.key ? null : it.key)}
+              details={it.details}
+            />
+          ))}
+        </div>
+      </main>
+
+      <footer 
+        className="mt-12 w-full max-w-md rounded-2xl p-6 text-center border shadow-sm" 
+        style={{ backgroundColor: "rgba(255, 250, 240, 0.9)", borderColor: "rgb(104, 97, 40)" }}
       >
         {/* Name */}
         <div className="text-lg font-bold mb-1" style={{ color: "#81361A" }}>
