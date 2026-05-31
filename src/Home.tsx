@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import LinkCard from "./LinkCard";
 import "./Home.css";
+import { FaAppleAlt } from "react-icons/fa";
+import { CgHomeScreen } from "react-icons/cg";
 
 function YamitPage() {
   const [animateWA, setAnimateWA] = useState(false);
@@ -34,39 +36,6 @@ function YamitPage() {
   const DropIcon = () => (
     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
       <path d="M12 2s7 8 7 13a7 7 0 1 1-14 0c0-5 7-13 7-13Z" />
-    </svg>
-  );
-
-  const AppleIcon = () => (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-      <path
-        d="M16.5 13.2c0 4.3-3.2 8.3-7.7 8.3C5.2 21.5 3 18.7 3 15c0-4.6 3-7.6 7.4-7.6c2.6 0 4.3 1.2 5.1 2.1c1.3 1.4 1 3.3.9 3.7Z"
-        opacity="0.95"
-      />
-      <path d="M13.7 2.8c.7 1.7-.3 3.7-2.3 4.4c-.4-1.6.7-3.5 2.3-4.4Z" />
-      <path
-        d="M16.6 8.8c1.1-.7 2.6-.6 3.4.2c-1.2 1-1.7 2.4-1.5 3.6c.1.9.6 1.8 1.3 2.4c-.6 1.5-1.7 2.8-3.4 3.3c-1.7.5-2.9-.3-4.2-.3c-1.3 0-2.6.9-4.1.3"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-
-  const ChartIcon = () => (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-      <path
-        d="M4 20V5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path d="M7 20V12" />
-      <path d="M11 20V9" />
-      <path d="M15 20V6" />
-      <path d="M19 20V14" />
     </svg>
   );
 
@@ -130,7 +99,7 @@ function YamitPage() {
       title: "תוכנית ליווי תזונתי/בריאותי LYP",
       bgColor: "#efe7da",
       accentColor: "#5a5a2a",
-      icon: <AppleIcon />,
+      icon: FaAppleAlt,
       details: (
         <p className="text-lg leading-7 text-black/80">
           תוכנית LYP היא תוכנית ליווי המשלבת מיצוי מרוכז של פירות וירקות
@@ -144,7 +113,7 @@ function YamitPage() {
       title: "עסק מהנייד/עבודה מהבית",
       bgColor: "#efe7da",
       accentColor: "#7a2f1e",
-      icon: <ChartIcon />,
+      icon: CgHomeScreen,
       details: (
         <p className="text-lg leading-7 text-black/80">
           אני מזמינה נשים שרוצות ליצור שינוי תעסוקתי, לבנות עסק עצמאי מהבית

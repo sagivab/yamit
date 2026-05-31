@@ -1,4 +1,5 @@
 import React from "react";
+import { IconType } from "react-icons";
 
 type LinkCardProps = {
   title: string;
@@ -7,7 +8,12 @@ type LinkCardProps = {
   bgColor?: string;
   textColor?: string;
   accentColor?: string;
-  icon?: React.ReactNode;
+  // הטיפוס תומך כעת ברכיב, אלמנט JSX מוכן, או פונקציה שמחזירה רכיב
+  icon?:
+    | IconType
+    | React.ComponentType
+    | React.ReactNode
+    | (() => React.ReactNode);
   isOpen: boolean;
   onToggle: () => void;
   details?: React.ReactNode;
@@ -25,6 +31,31 @@ const LinkCard: React.FC<LinkCardProps> = ({
   onToggle,
   details,
 }) => {
+  // פונקציית עזר חכמה שמפענחת ומציגה את האייקון לפי הסוג שלו
+  const renderIcon = () => {
+    if (!icon) return null;
+
+    // מקרה 1: אם מדובר בפונקציה (למשל פונקציית SVG: () => <svg>...</svg>)
+    if (typeof icon === "function") {
+      // בודקים אם זו קומפוננטת ריאקט (מתחילה באות גדולה או פונקציה רגילה)
+      // ליתר ביטחון, ננסה לרנדר כקומפוננטה, ואם לא - נפעיל כפונקציה
+      const IconComponent = icon as React.ComponentType;
+      // אם השם של הפונקציה ריק או מתחיל באות קטנה, נפעיל אותה ישירות
+      if (icon.name && icon.name[0] === icon.name[0].toUpperCase()) {
+        return <IconComponent />;
+      }
+      return (icon as Function)();
+    }
+
+    // מקרה 2: אם זה כבר אלמנט ריאקט מוכן (למשל <FaAppleAlt /> או <svg>...)
+    if (React.isValidElement(icon)) {
+      return icon;
+    }
+
+    // מקרה מילוט (Fallback)
+    return null;
+  };
+
   return (
     <div
       className="w-full overflow-hidden rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition-all duration-200 hover:-translate-y-[2px] hover:shadow-[0_16px_32px_rgba(0,0,0,0.10)]"
@@ -47,8 +78,11 @@ const LinkCard: React.FC<LinkCardProps> = ({
               className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-black/10"
               style={{ backgroundColor: "rgba(255,255,255,0.65)" }}
             >
-              <div className="text-xl" style={{ color: accentColor }}>
-                {icon}
+              <div
+                className="text-xl flex items-center justify-center"
+                style={{ color: accentColor }}
+              >
+                {renderIcon()}
               </div>
             </div>
           ) : null}
