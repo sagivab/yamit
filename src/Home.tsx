@@ -223,7 +223,7 @@ function YamitPage() {
             {/* טקסט רספונסיבי - משנה גודל בהתאם למסך כדי למנוע שבירה מכוערת */}
             <div className="text-right">
               <span className="text-base sm:text-lg md:text-xl font-bold leading-tight block">
-                להצטרפות לקהילת הבריאות החינמית שלי
+                הצטרפות לקהילת הבריאות החינמית שלי
               </span>
             </div>
           </a>
